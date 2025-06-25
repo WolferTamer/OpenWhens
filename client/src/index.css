@@ -1,0 +1,251 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.mailcolor {
+  width:100px;
+  height: 100px;
+}
+
+.openwhentext {
+  font-family: 'brush-script-std','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+  color:black;
+  margin:0px;
+}
+
+.whattext {
+  text-size-adjust: auto;
+  overflow: hidden;
+  position: absolute;
+  max-width:80%;
+  max-height: 17%;
+  top:85%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+  color:black;
+  margin:0px;
+}
+
+.letterparent {
+  text-align: center;
+  position: relative;
+  container-type: inline-size;
+}
+
+@container (min-width:10px) {
+  .openwhentext {
+    font-size: 10cqw;
+  }
+  .whattext {
+    font-size: 5cqw;
+  }
+}
+
+
+.letter {
+  width: 100%;
+  height: auto;
+}
+
+.letterbrowser {
+  flex-direction:column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width:100%;
+  min-height: 100vh;
+}
+
+.letterbrowser .letterparent {
+  width:40vw;
+}
+
+.overlay {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.5);
+  display:flex;
+  z-index:10;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-form {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  min-width: 20em;
+  min-height:3em;
+  display:flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.create-form * {
+  width:100%;
+}
+
+.create-button {
+  background-color: #535bf2;
+  color:#f9f9f9;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  position:fixed;
+  top:0px;
+  right:0px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top:1em
+}
+
+.send-button {
+  background-color: greenyellow;
+  color:black;
+  padding:0.5em;
+  margin: 0 0.5em 0 0.5em;
+  border-width: 0px;
+  border-radius: 1em;
+}
+
+.save-button {
+  background-color: cyan;
+  color:black;
+  padding:0.5em;
+  margin: 0 0.5em 0 0.5em;
+  border-width: 0px;
+  border-radius: 1em;
+}
+
+@keyframes mail-send-start {
+  0% {
+    transform: translate(0px,0px);
+  }
+  100% {
+    transform: translate(0px,5vh);
+    
+  }
+}
+
+@keyframes mail-send {
+  0% {
+    transform: translate(0px,5vh);
+  }
+  100% {
+    transform: translate(0px,-150vh);
+    
+  }
+}
+
+@media(prefers-reduced-motion: no-preference) {
+  .mail-send-start {
+    animation: 0.1s ease-in-out 0s mail-send-start
+  }
+
+  .mail-send {
+    animation: 2s ease-in-out 0s mail-send
+  }
+}
+
+.edit-button {
+  position:absolute;
+  bottom:2%;
+  left:5%;
+  width:15%;
+  height:15%;
+}
+
+.trash-button {
+  position:absolute;
+  bottom:4%;
+  right:8%;
+  width:10%;
+  height:10%;
+}

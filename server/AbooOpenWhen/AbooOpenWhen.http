@@ -1,0 +1,6 @@
+@AbooOpenWhen_HostAddress = http://localhost:5289
+
+GET {{AbooOpenWhen_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
