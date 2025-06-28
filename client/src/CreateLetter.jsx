@@ -83,16 +83,16 @@ function CreateLetter(props) {
             <Letter endAnimation={onSuccess} color={color} when={when} state={sending ? "animated" : "open"}>
 
             </Letter>
-            <form className="create-form">
-                <label htmlFor="recipient">Recipient Email</label>
-                <input name="recipient" type="email" placeholder="Email..." value={recipient} onChange={(e) => {setRecipient(e.target.value)}} required={false}/>
-                <label htmlFor="when">Open When...</label>
-                <input name="when" type="text" placeholder="Open When xxx yyy..." value={when} onChange={(e) => {setWhen(e.target.value)}}/>
-                <label htmlFor="content">Message</label>
-                <textarea name="content" placeholder="Message Content..." value={content} onChange={(e) => {setContent(e.target.value)}}/>
-                <label htmlFor="color">Color</label>
-                <input type="color" name="color" value={color} onChange={(e) => {setColor(e.target.value)}}/>
-                <div className="row">
+            <form className="login-form">
+                <label htmlFor="recipient" className="login-label">Recipient Email</label>
+                <input className="login-input" name="recipient" type="email" placeholder="Email..." value={recipient} onChange={(e) => {setRecipient(e.target.value)}} required={false}/>
+                <label htmlFor="when" className="login-label">Open When...</label>
+                <input className="login-input" name="when" type="text" placeholder="Open When xxx yyy..." value={when} onChange={(e) => {setWhen(e.target.value)}}/>
+                <label htmlFor="content" className="login-label">Message</label>
+                <textarea className="login-input" name="content" placeholder="Message Content..." value={content} onChange={(e) => {setContent(e.target.value)}}/>
+                <label htmlFor="color" className="login-label">Color</label>
+                <input className="color-input" type="color" name="color" value={color} onChange={(e) => {setColor(e.target.value)}}/>
+                <div className="login-div">
                     <input type="button" value="Save" className="save-button" onClick={onSave}/>
                     <input type="button" value="Send" className="send-button" onClick={onSend}/>
                 </div>

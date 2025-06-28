@@ -5,7 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #780000;
+  color:#fdf0d5;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -105,6 +106,12 @@ button:focus-visible {
   container-type: inline-size;
 }
 
+@media screen and (orientation: portrait) {
+  .letterparent {
+    min-width:80vw;
+  }
+}
+
 @container (min-width:10px) {
   .openwhentext {
     font-size: 10cqw;
@@ -145,6 +152,7 @@ button:focus-visible {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .create-form {
@@ -166,16 +174,13 @@ button:focus-visible {
 }
 
 .create-button {
-  background-color: #535bf2;
-  color:#f9f9f9;
-  width: 50px;
-  height: 50px;
+  width: 7em;
+  height: 7em;
   border-radius: 5px;
   position:fixed;
-  top:0px;
+  bottom:0px;
   right:0px;
-  text-align: center;
-  font-size: 40px;
+  filter: invert(100%);
 }
 
 .row {
@@ -193,6 +198,12 @@ button:focus-visible {
   margin: 0 0.5em 0 0.5em;
   border-width: 0px;
   border-radius: 1em;
+  font-size: medium;
+}
+
+.send-button:focus {
+  outline: none;
+  background-color: lightgreen;
 }
 
 .save-button {
@@ -202,6 +213,12 @@ button:focus-visible {
   margin: 0 0.5em 0 0.5em;
   border-width: 0px;
   border-radius: 1em;
+  font-size: medium;
+}
+
+.save-button:focus {
+  outline: none;
+  background-color: lightblue;
 }
 
 @keyframes mail-send-start {
@@ -226,7 +243,7 @@ button:focus-visible {
 
 @media(prefers-reduced-motion: no-preference) {
   .mail-send-start {
-    animation: 0.1s ease-in-out 0s mail-send-start
+    animation: 0.5s ease-in-out 0s mail-send-start
   }
 
   .mail-send {
@@ -248,4 +265,111 @@ button:focus-visible {
   right:8%;
   width:10%;
   height:10%;
+}
+
+.login-label {
+  font-size: larger;
+  margin-bottom: 1em;
+}
+
+.login-input {
+  font-size: large;
+  border-width: 0px;
+  border-bottom: 1px solid #003049;
+  background-color: #fdf0d5;
+  color: #003049;
+  margin-bottom: 2em;
+  width:100%
+}
+
+.login-input:focus {
+  background-color: #dbd8af;
+  outline: none;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding:3em;
+  background-color: #fdf0d5;
+  color:#003049;
+  border-radius: 2em;
+  min-width: 18em;
+  max-width: 100%;
+}
+
+.login-submit {
+  background-color: #c1121f;
+  border-radius: 1em;
+  border-width: 0px;
+  font-size:large;
+  padding:0.5em;
+}
+
+.login-submit:hover {
+  background-color: #780000;
+  cursor: pointer;
+}
+
+.login-div {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
+
+.login-div button {
+  align-self:flex-end;
+  background-color: rgba(0,0,0,0);
+  color: #646cff;
+}
+
+.login-div button:hover {
+  outline: none;
+  color: #535bf2;
+  border-color: rgba(0,0,0,0);
+}
+
+select {
+  border-radius: 0.25em;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size:large;
+  width:15em;
+  background-color: #dbd8af;
+  color:#003049;
+}
+
+.color-input {
+  width:50%;
+  height:3em;
+  margin-bottom: 2em;
+}
+
+.contents-div {
+  font-family: 'brush-script-std','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:xx-large;
+  width:100vw;
+  height:100vh;
+  position:fixed;
+  top:0px;
+  bottom:0px;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.contents-paper {
+  width:15em;
+  text-align: left;
+  height:20em;
+  background-image: url("assets/cardboard-texture.png");
+  color: #000000;
+  padding:1em;
 }

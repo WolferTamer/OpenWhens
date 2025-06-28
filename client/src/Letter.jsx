@@ -16,8 +16,8 @@ function Letter (props){
     }
 
     return <div ref={animatedOpen} className={`letterparent ${props.state === 'animated' ? animationSet == 0 ? 'mail-send-start' : 'mail-send' : ''}`} onAnimationEnd={onAnimationEnd}>
-            {props.state === 'open' || (props.state === 'animated' && animationSet == 0) ? <OpenMail style={{color:props.color || '#000000'}} className='letter'/> : ''}
-            {props.state === 'closed' || (props.state === 'animated' && animationSet == 1) ? <ClosedMail style={{color:props.color || '#000000'}} className={'letter'}/> : ''}
+            {props.state === 'open' || (props.state === 'animated' && animationSet == 0) ? <OpenMail onClick={() => {props.onopen(props.id)}} style={{color:props.color || '#000000'}} className='letter'/> : ''}
+            {props.state === 'closed' || (props.state === 'animated' && animationSet == 1) ? <ClosedMail onClick={() => {props.onopen(props.id)}} style={{color:props.color || '#000000'}} className={'letter'}/> : ''}
             <p className='openwhentext'>Open When</p>
             <p className='whattext'>{props.when ?? 'You want to!'}</p>
             {props.onedit ? <img src={Edit} className='edit-button' onClick={() => {props.onedit(props.id)}}></img> : ''}

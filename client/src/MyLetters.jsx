@@ -3,6 +3,8 @@ import {useCookies} from 'react-cookie'
 import Letter from "./Letter"
 import CreateLetter from "./CreateLetter"
 import UpdateLetter from "./UpdateLetter"
+import Edit from './assets/Edit.png'
+import Contents from "./Contents"
 
 function MyLetters(props) {
     const [letters,setLetters] = useState({recipient:[],sender:[]})
@@ -11,6 +13,7 @@ function MyLetters(props) {
     const [section, setSection] = useState('recipient')
     const [creating, setCreating] = useState(false)
     const [updateTarget, setTarget] = useState(null)
+    const [letterContent, setLetterContent] = useState(null)
 
     function fetchLetters() {
         const backendurl = import.meta.env.VITE_BACKEND
@@ -108,18 +111,29 @@ function MyLetters(props) {
         .catch((error) => console.error(error));
     }
 
+    function openLetter(id) {
+        setLetterContent(letters.sender.find((v) => v.id === id)["content"])
+    }
+
+    function closeLetter() {
+        console.log("closed")
+        setLetterContent(null)
+    }
+
     return <div className="letterbrowser">
+        {letterContent ? <Contents onclose={closeLetter}>{letterContent}</Contents> : ''}
         {creating ? <CreateLetter finished={finishCreating}/> : ''}
         {updateTarget ? <UpdateLetter letter={updateTarget} finished={finishEdit}/> : ''}
-        <button onClick={onCreate} class="create-button"></button>
+        <img onClick={onCreate} src={Edit} alt="edit" className="create-button"></img>
         <select defaultValue="recipient" onChange={onSectionChanged}>
             <option value="recipient">Recieved</option>
             <option value="sender">Outgoing</option>
         </select>
-        {letters[section].length < 1 ? <><p>No Letters Found</p><p>{error}</p></> : letters[section].map(
+        {letters[section].length < 1 ? <><h1>No Letters Found</h1><p>{error}</p></> : letters[section].map(
             (v) => <Letter when={v.when} color={v.color} state="closed" id={v.id}
             onedit={section === "sender" && !v.sent ? onEdit : undefined}
-            ondelete={section === "sender" && !v.sent ? onDelete : undefined}></Letter>)}
+            ondelete={section === "sender" && !v.sent ? onDelete : undefined}
+            onopen={openLetter}></Letter>)}
     </div>
 }
 
