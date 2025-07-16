@@ -59,7 +59,7 @@ builder.Services.AddSwaggerGen(options =>
                     Id= "Bearer"
                 }
             },
-            new string[0]
+            Array.Empty<string>()
         }
     });
 });
@@ -91,6 +91,7 @@ try
 } catch (Exception e)
 {
     Console.WriteLine(e.GetType().ToString());
+    Console.WriteLine(e.InnerException.ToString());
     Environment.Exit(1);
 }
 
