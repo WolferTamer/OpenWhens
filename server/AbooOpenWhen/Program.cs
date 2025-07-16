@@ -72,6 +72,7 @@ try
 
     app.MapIdentityApi<IdentityUser>();
 
+    app.UseRouting();
     app.UseCors(MyAllowSpecificOrigins);
 
     // Configure the HTTP request pipeline.
