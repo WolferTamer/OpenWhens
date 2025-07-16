@@ -23,7 +23,7 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-Console.WriteLine("Made it to SQL");
+Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<IdentityUser>()
     .AddEntityFrameworkStores<AuthDbContext>();
