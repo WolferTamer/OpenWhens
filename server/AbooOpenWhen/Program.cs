@@ -23,6 +23,7 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+Console.WriteLine("Made it to SQL");
 builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<IdentityUser>()
     .AddEntityFrameworkStores<AuthDbContext>();
@@ -62,8 +63,10 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+Console.WriteLine("Made it to Swagger Gen");
 
 var app = builder.Build();
+Console.WriteLine("Built Program");
 
 app.MapIdentityApi<IdentityUser>();
 
