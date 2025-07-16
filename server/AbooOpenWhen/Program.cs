@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+                          policy.WithOrigins(["https://pure-possibility-production-2555.up.railway.app", "http://localhost"]).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
                       });
 });
 
