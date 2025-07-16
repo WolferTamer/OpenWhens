@@ -18,7 +18,7 @@ COPY . .
 WORKDIR "/src/AbooOpenWhen"
 RUN dotnet build "./AbooOpenWhen.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-RUN sudo apt-get install libkrb53 --reinstall
+RUN apt-get install libkrb53 --reinstall
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
