@@ -65,24 +65,33 @@ builder.Services.AddSwaggerGen(options =>
 });
 Console.WriteLine("Made it to Swagger Gen");
 
-var app = builder.Build();
-Console.WriteLine("Built Program");
-
-app.MapIdentityApi<IdentityUser>();
-
-app.UseCors(MyAllowSpecificOrigins);
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+try
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var app = builder.Build();
+    Console.WriteLine("Built Program");
+
+    app.MapIdentityApi<IdentityUser>();
+
+    app.UseCors(MyAllowSpecificOrigins);
+
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseAuthorization();
+
+    app.MapControllers();
+
+    app.Run();
+} catch (Exception e)
+{
+    Console.WriteLine(e.GetType().ToString());
+    Environment.Exit(1);
 }
 
-app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
