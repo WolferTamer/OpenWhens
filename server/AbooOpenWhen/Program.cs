@@ -16,6 +16,8 @@ builder.Services.AddCors(options =>
                       });
 });
 
+builder.Configuration.AddEnvironmentVariables();
+
 // Add services to the container.
 builder.Services.AddDbContext<AuthDbContext>(options =>
 {
